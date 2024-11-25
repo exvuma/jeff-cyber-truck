@@ -5,8 +5,8 @@ import { TruckMarkers } from './components/TruckMarkers';
 import 'leaflet/dist/leaflet.css';
 import './App.css';
 // In a real app, these would be environment variables
-const VALID_USERNAME = (import.meta.env?.VITE_USERNAME as string) || 'admin';
-const VALID_PASSWORD = (import.meta.env?.VITE_PASSWORD as string) || 'password123';
+const VALID_USERNAME = (import.meta.env?.VITE_USERNAME as string) || 'jeff';
+const VALID_PASSWORD = (import.meta.env?.VITE_PASSWORD as string) || 'thepowerlaw';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
