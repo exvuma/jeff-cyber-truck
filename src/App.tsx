@@ -4,10 +4,9 @@ import { LoginModal } from './components/LoginModal';
 import { TruckMarkers } from './components/TruckMarkers';
 import 'leaflet/dist/leaflet.css';
 import './App.css';
-
 // In a real app, these would be environment variables
-const VALID_USERNAME = 'admin';
-const VALID_PASSWORD = 'password123';
+const VALID_USERNAME = (import.meta.env?.VITE_USERNAME as string) || 'admin';
+const VALID_PASSWORD = (import.meta.env?.VITE_PASSWORD as string) || 'password123';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -29,18 +28,16 @@ function App() {
     }
   };
 
-  const bounds = [
-    [15.0, -170.0],
-    [72.0, -50.0]
-  ];
-
   if (!isAuthenticated) {
     return <LoginModal onLogin={handleLogin} />;
   }
 
   return (
     <MapContainer
-      bounds={bounds}
+      bounds={[
+        [15.0, -170.0],
+        [72.0, -50.0]
+      ] as L.LatLngBoundsLiteral}
       style={{ height: "100vh", width: "100vw" }}
       zoomControl={true}
     >
