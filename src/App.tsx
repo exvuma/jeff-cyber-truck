@@ -28,9 +28,10 @@ function App() {
     }
   };
 
-  if (!isAuthenticated) {
-    return <LoginModal onLogin={handleLogin} />;
-  }
+  // Remove this if we  want to show the login modal
+  // if (!isAuthenticated) {
+  //   return <LoginModal onLogin={handleLogin} />;
+  // }
 
   return (
     <MapContainer
